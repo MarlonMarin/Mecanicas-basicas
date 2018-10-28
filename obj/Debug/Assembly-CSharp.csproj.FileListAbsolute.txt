@@ -1,0 +1,3 @@
+D:\Users\marlon.marin\Downloads\mecanicas\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\eslai\OneDrive\Documents\octavo\Videojuegos\Storiboard\Game\Mecanicas-basicas\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\eslai\OneDrive\Documents\octavo\Videojuegos\Storiboard\Game\Mecanicas-basicas\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
