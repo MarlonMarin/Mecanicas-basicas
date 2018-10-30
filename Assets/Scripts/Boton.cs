@@ -14,6 +14,7 @@ public class Boton : MonoBehaviour {
         posI = transform.position;
         //editar esta pocision si se quiere ir más a fondo con el boton
         posF = new Vector3(posI.x,posI.y - 0.3f,posI.z);
+        g.active = false;
 	}
 	
 	// Update is called once per frame
@@ -38,7 +39,7 @@ public class Boton : MonoBehaviour {
             {
                 g.active = false;
             }
-            Debug.Log(g.active);
+            //Debug.Log(g.active);
             
         }
         
@@ -49,7 +50,7 @@ public class Boton : MonoBehaviour {
 
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "objeto")
         {
-            Debug.Log("tocando");
+            //Debug.Log("tocando");
             boton1 = true;
         }
 
@@ -59,7 +60,7 @@ public class Boton : MonoBehaviour {
     {
         if (col2.gameObject.tag == "Player" || col2.gameObject.tag == "objeto")
         {
-            Debug.Log("sin tocar");
+            //Debug.Log("sin tocar");
             boton1 = false;
         }
     }

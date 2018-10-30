@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PalancaCruzada : MonoBehaviour {
 
-    public GameObject[] obj;
+    public GameObject[] obj; 
+    public GameObject[] activar;
     Transform objetivo;             //Personaje principal  
     public float speedRot;          //Velocidad de rotacion
     Vector3 Direccion;              //Direccion de movimiento
@@ -18,6 +19,11 @@ public class PalancaCruzada : MonoBehaviour {
     void Start() {
             // Encontramos el personaje principal usando Tags
             objetivo = GameObject.FindGameObjectWithTag("Player").transform;
+        for (int i = 0; i < activar.Length; i++)
+        {
+            activar[i].active = false;
+
+        }
 
     }
 
@@ -31,33 +37,48 @@ public class PalancaCruzada : MonoBehaviour {
             objetivo.transform.position = transform.position + offset * -1;
 
             //Rotacion
-            DireccionRotacion = objetivo.position - transform.position;     //halla la linea entre la palanca y el personaje
-            float MovimientoFluidoRot = speedRot * Time.deltaTime;          //Da un movimiento fluido
-            DireccionRotacion.y = 0;                                        //no se rota en el eje y
+            DireccionRotacion = objetivo.position - transform.position;                     //halla la linea entre la palanca y el personaje
+            float MovimientoFluidoRot = speedRot * Time.deltaTime;                          //Da un movimiento fluido
+            DireccionRotacion.y = 0;                                                        //no se rota en el eje y
             transform.rotation = Quaternion.Slerp(transform.rotation, 
-                Quaternion.LookRotation(DireccionRotacion), MovimientoFluidoRot); // rota
+                Quaternion.LookRotation(DireccionRotacion), MovimientoFluidoRot);           // rota
             Vector3[] negpos = new Vector3[2];
             negpos[0] = new Vector3(0,45,0);
             negpos[1] = new Vector3(0, 90, 0);
             for (int i = 0; i < obj.Length; i++)
+
             {
-                if(i % 2 == 0)
+                obj[i].transform.rotation = Quaternion.Slerp(obj[i].transform.rotation,
+                    Quaternion.LookRotation(DireccionRotacion), MovimientoFluidoRot);   // rota
+                Debug.Log((int)obj[i].transform.rotation.eulerAngles.y);
+
+                if ((int)obj[i].transform.rotation.eulerAngles.y >= 30 && (int)obj[i].transform.rotation.eulerAngles.y <= 300)
                 {
-                    obj[i].transform.rotation = Quaternion.Slerp(obj[i].transform.rotation, 
-                        Quaternion.LookRotation(DireccionRotacion + negpos[0]), MovimientoFluidoRot); // rota
+                    for (int j = 0; j < activar.Length; j++)
+                    {
+                        activar[j].active = false;
+
+                    }
                 }
                 else
                 {
-                    obj[i].transform.rotation = Quaternion.Slerp(obj[i].transform.rotation, 
-                        Quaternion.LookRotation(DireccionRotacion + negpos[1]), MovimientoFluidoRot); // rota
+                    for (int k = 0; k < activar.Length; k++)
+                    {
+                        activar[k].active = true;
+
+                    }
                 }
+
             }
+
+            
         }
         else
         {
             offset = transform.position - objetivo.transform.position;
         }
         offset = transform.position - objetivo.transform.position;
+        
     }
         public void OnCollisionEnter(Collision col)
         {
@@ -65,7 +86,7 @@ public class PalancaCruzada : MonoBehaviour {
             {
                 girando = true;
                 offset = transform.position - new Vector3(col.transform.position.x, col.transform.position.y, col.transform.position.z);
-                Debug.Log("entra");
+                //Debug.Log("entra");
             }
         }
 
@@ -73,7 +94,7 @@ public class PalancaCruzada : MonoBehaviour {
     {
         if (col2.gameObject.tag == "Player")
         {
-            Debug.Log("sin tocar");
+            //Debug.Log("sin tocar");
             girando = false;
         }
     }

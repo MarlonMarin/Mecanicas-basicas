@@ -12,6 +12,6 @@ public class IntroToE1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown("space"))
-            Application.LoadLevel("primitivas");
+            Application.LoadLevel("nivel1");
     }
 }

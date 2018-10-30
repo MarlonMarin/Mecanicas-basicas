@@ -14,6 +14,8 @@ public class Enemigo : MonoBehaviour {
     Vector3 Direccion;          //Direccion de movimiento
     public float invertDireccion;
     Vector3 DireccionRotacion;  //Mantener frente al enemigo
+    private Rigidbody rb;
+    public string escena;
 
     public bool llave1=false;
     //static Animator anim;
@@ -22,7 +24,8 @@ public class Enemigo : MonoBehaviour {
 
         //Encontramos el personaje principal usando Tags
         Objetivo = GameObject.FindGameObjectWithTag("Player").transform;
-
+        
+        rb = GetComponent<Rigidbody>();
         //anim = GetComponent<Animator>();
 
     }
@@ -31,7 +34,7 @@ public class Enemigo : MonoBehaviour {
     void Update()
     {
         if (llave1) {
-            transform.position = Objetivo.transform.position - new Vector3(DistanciaDetec-1, 0, 0);
+            transform.position = Objetivo.transform.position - new Vector3(DistanciaDetec, 0, 0);
             llave1 = false;
         }
 
@@ -48,7 +51,7 @@ public class Enemigo : MonoBehaviour {
             Direccion = new Vector3(Objetivo.transform.position.x, Objetivo.transform.position.y , Objetivo.transform.position.z);        //Guarda la posicion del personaje principal
             float MovimientoFluido = speedMov * Time.deltaTime;        //Da un movimiento fluido
             transform.position = Vector3.MoveTowards(transform.position, Direccion, MovimientoFluido);      //El enemigo persigue
-
+            //rb.velocity = Vector3.MoveTowards(transform.position, Direccion, MovimientoFluido);      //El enemigo persigue
             //anim.SetBool("Detectado", true);
         }
 
@@ -75,8 +78,8 @@ public class Enemigo : MonoBehaviour {
 
         if (col.gameObject.tag == "Player" )
         {
-            Debug.Log("Game over");
-            SceneManager.LoadScene("Intro");
+            //Debug.Log("Game over");
+            SceneManager.LoadScene(escena);
         }
 
     }
