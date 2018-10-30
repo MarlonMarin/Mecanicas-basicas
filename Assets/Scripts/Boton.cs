@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Boton : MonoBehaviour {
 
-    public bool boton1 = false;
+    public bool tocPlayer = false;
+    public bool tocObj = false;
     public Vector3 posI;
     public Vector3 posF;
     public GameObject g;
@@ -19,7 +20,7 @@ public class Boton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (boton1)
+        if (tocPlayer || tocObj)
         {
             if (transform.position.y <= posF.y)
             {
@@ -47,21 +48,31 @@ public class Boton : MonoBehaviour {
 
     public void OnCollisionEnter(Collision col)
     {
-
-        if (col.gameObject.tag == "Player" || col.gameObject.tag == "objeto")
+        if (col.gameObject.tag == "objeto")
         {
-            //Debug.Log("tocando");
-            boton1 = true;
+            tocObj = true;
         }
-
+        else if(col.gameObject.tag == "Player")
+        {
+            tocPlayer = true;
+        }
+        else
+        {
+            tocObj = false;
+            tocPlayer = false;
+        }
     }
 
     void OnCollisionExit(Collision col2)
     {
-        if (col2.gameObject.tag == "Player" || col2.gameObject.tag == "objeto")
+        if (col2.gameObject.tag == "Player")
         {
             //Debug.Log("sin tocar");
-            boton1 = false;
+            tocPlayer = false;
+        }else if (col2.gameObject.tag == "objeto")
+        {
+            //Debug.Log("sin tocar");
+            tocObj = false;
         }
     }
 

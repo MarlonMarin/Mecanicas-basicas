@@ -52,7 +52,7 @@ public class PalancaCruzada : MonoBehaviour {
                     Quaternion.LookRotation(DireccionRotacion), MovimientoFluidoRot);   // rota
                 Debug.Log((int)obj[i].transform.rotation.eulerAngles.y);
 
-                if ((int)obj[i].transform.rotation.eulerAngles.y >= 30 && (int)obj[i].transform.rotation.eulerAngles.y <= 300)
+                if ((int)transform.rotation.eulerAngles.y <= 300 )//&& (int)transform.rotation.eulerAngles.y >= 150)
                 {
                     for (int j = 0; j < activar.Length; j++)
                     {

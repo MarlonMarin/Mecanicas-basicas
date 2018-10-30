@@ -32,21 +32,21 @@ public class CameraOrbit : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftShift))
             CameraDisabled = !CameraDisabled;
 
-        if (!CameraDisabled)
-        {
-            //Rotation of the Camera based on Mouse Coordinates
-            if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0 && Input.GetMouseButton(1))
-            {
-                _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
-                _LocalRotation.y += Input.GetAxis("Mouse Y") * MouseSensitivity;
+        //if (!CameraDisabled)
+        //{
+        //    //Rotation of the Camera based on Mouse Coordinates
+        //    if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0 && Input.GetMouseButton(1))
+        //    {
+        //        _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
+        //        _LocalRotation.y += Input.GetAxis("Mouse Y") * MouseSensitivity;
 
-                //Clamp the y Rotation to horizon and not flipping over at the top
-                if (_LocalRotation.y < 0f)
-                    _LocalRotation.y = 0f;
-                else if (_LocalRotation.y < 45f)
-                    _LocalRotation.y = 45f;
-            }
-        }
+        //        //Clamp the y Rotation to horizon and not flipping over at the top
+        //        if (_LocalRotation.y < 0f)
+        //            _LocalRotation.y = 0f;
+        //        else if (_LocalRotation.y < 45f)
+        //            _LocalRotation.y = 45f;
+        //    }
+        //}
 
         //Actual Camera Rig Transformations
         Quaternion QT = Quaternion.Euler(_LocalRotation.y * -1, _LocalRotation.x, 0);
