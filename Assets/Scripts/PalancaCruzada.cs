@@ -33,7 +33,6 @@ public class PalancaCruzada : MonoBehaviour {
         cambio = !cambio;
         if (girando && Input.GetKey("i") && cambio)
         {
-            Debug.Log("entra if");
             objetivo.transform.position = transform.position + offset * -1;
 
             //Rotacion
@@ -42,16 +41,10 @@ public class PalancaCruzada : MonoBehaviour {
             DireccionRotacion.y = 0;                                                        //no se rota en el eje y
             transform.rotation = Quaternion.Slerp(transform.rotation, 
                 Quaternion.LookRotation(DireccionRotacion), MovimientoFluidoRot);           // rota
-            Vector3[] negpos = new Vector3[2];
-            negpos[0] = new Vector3(0,45,0);
-            negpos[1] = new Vector3(0, 90, 0);
-            for (int i = 0; i < obj.Length; i++)
+
+            for (int i = 0; i <= activar.Length; i++)
 
             {
-                obj[i].transform.rotation = Quaternion.Slerp(obj[i].transform.rotation,
-                    Quaternion.LookRotation(DireccionRotacion), MovimientoFluidoRot);   // rota
-                Debug.Log((int)obj[i].transform.rotation.eulerAngles.y);
-
                 if ((int)transform.rotation.eulerAngles.y <= 300 )//&& (int)transform.rotation.eulerAngles.y >= 150)
                 {
                     for (int j = 0; j < activar.Length; j++)

@@ -9,6 +9,8 @@ TagManager:
   - candado
   - llave
   - palancaGiratoria
+  - PlayerAnimator
+  - reiniciar
   layers:
   - Default
   - TransparentFX

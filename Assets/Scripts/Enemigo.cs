@@ -71,6 +71,7 @@ public class Enemigo : MonoBehaviour {
         {
             //anim.SetBool("Detectado", false);
         }
+        rb.velocity = new Vector3(0, -10 * Time.deltaTime, 0);
 
     }
     public void OnCollisionEnter(Collision col)
