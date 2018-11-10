@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemigo : MonoBehaviour {
 
-    
+
     Transform Objetivo;     //Personaje principal  
     public float DistanciaDetec;     //Distancia de deteccion
     public float DistanciaNear = 1;     //Distancia maxima del acercamiento del personaje
@@ -15,7 +15,7 @@ public class Enemigo : MonoBehaviour {
     public float invertDireccion;
     Vector3 DireccionRotacion;  //Mantener frente al enemigo
     private Rigidbody rb;
-    public string escena;
+    public string escena;       //para cambiar de escena
 
     public bool llave1=false;
     //static Animator anim;
@@ -24,7 +24,6 @@ public class Enemigo : MonoBehaviour {
 
         //Encontramos el personaje principal usando Tags
         Objetivo = GameObject.FindGameObjectWithTag("Player").transform;
-        
         rb = GetComponent<Rigidbody>();
         //anim = GetComponent<Animator>();
 
@@ -34,7 +33,7 @@ public class Enemigo : MonoBehaviour {
     void Update()
     {
         if (llave1) {
-            transform.position = Objetivo.transform.position - new Vector3(DistanciaDetec, 0, 0);
+            transform.position = Objetivo.transform.position - new Vector3(DistanciaDetec, 0, DistanciaDetec);
             llave1 = false;
         }
 
