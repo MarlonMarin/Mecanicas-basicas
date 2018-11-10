@@ -43,7 +43,7 @@ public class PlayerContl : MonoBehaviour
         if (adelante)
         {
             //Animaciones
-            animController.SetBool("saltar", false);
+            animController.SetBool("morir", false);
             animController.SetBool("idle", false);
             animController.SetBool("correr", true);
             //rotación
@@ -58,7 +58,7 @@ public class PlayerContl : MonoBehaviour
         if (atras)
         {
             //Animaciones
-            animController.SetBool("saltar", false);
+            animController.SetBool("morir", false);
             animController.SetBool("idle", false);
             animController.SetBool("correr", true);
             //rotacion
@@ -73,7 +73,7 @@ public class PlayerContl : MonoBehaviour
         if (derecha)
         {
             //Animaciones
-            animController.SetBool("saltar", false);
+            animController.SetBool("morir", false);
             animController.SetBool("idle", false);
             animController.SetBool("correr", true);
             //rotacion
@@ -88,7 +88,7 @@ public class PlayerContl : MonoBehaviour
         if (izquierda)
         {
             //Animaciones
-            animController.SetBool("saltar", false);
+            animController.SetBool("morir", false);
             animController.SetBool("idle", false);
             animController.SetBool("correr", true);
             //rotacion
@@ -121,6 +121,10 @@ public class PlayerContl : MonoBehaviour
         if (col.gameObject.tag == "plataforma")
         {
             EnPiso = true;
+        }
+        if(col.gameObject.tag== "enemigo")
+        {
+
         }
     }
 }

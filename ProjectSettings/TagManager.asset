@@ -11,6 +11,7 @@ TagManager:
   - palancaGiratoria
   - PlayerAnimator
   - reiniciar
+  - enemigo
   layers:
   - Default
   - TransparentFX
