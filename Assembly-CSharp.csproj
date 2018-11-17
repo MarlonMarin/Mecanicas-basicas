@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Reiniciar.cs" />
     <Compile Include="Assets\Scripts\ReproductorDeSonido.cs" />
+    <Compile Include="Assets\UI\En el juego\Scripts\BarraLuz.cs" />
     <None Include="Assets\Sonidos\Audio\TriggerSound Script.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/eslai/OneDrive/Documents/octavo/Videojuegos/Storiboard/Game/Mecanicas-basicas/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
