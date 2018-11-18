@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CambioColor.cs" />
     <Compile Include="Assets\INTRO\IntroToE1.cs" />
     <Compile Include="Assets\modelos\hongos\bengala.cs" />
     <Compile Include="Assets\Scripts\Boton.cs" />
