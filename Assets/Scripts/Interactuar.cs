@@ -6,9 +6,11 @@ public class Interactuar : MonoBehaviour
 {
     public Vector3 offset, posinicial;
     public bool interactuando = false;
-    public GameObject player;
+    public GameObject player, mano;
+    public Rigidbody Rllave;
     void Start()
     {
+        mano = GameObject.FindGameObjectWithTag("mano");
         posinicial = transform.position;
     }
 
@@ -20,12 +22,15 @@ public class Interactuar : MonoBehaviour
         }
         if (interactuando && Input.GetKey("i"))
         {
-
-            transform.position = player.transform.position + offset;
+            Rllave.detectCollisions = false;
+            transform.position = mano.transform.position;
+            //transform.position = player.transform.position + offset;
         }
         else
         {
-            offset = transform.position - player.transform.position;
+            Rllave.detectCollisions = true;
+            offset = transform.position - mano.transform.position;
+            //offset = transform.position - player.transform.position;
         }
     }
 
@@ -34,10 +39,12 @@ public class Interactuar : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            float posY;
-            posY = col.transform.position.y - 0.5f;
+                float posY;
+                posY = col.transform.position.y - 0.5f;
+            //    posY = col.transform.position.y - 0.5f;
 
-            offset = transform.position - new Vector3(col.transform.position.x, posY, col.transform.position.z);
+            //    offset = transform.position - new Vector3(col.transform.position.x, posY, col.transform.position.z);
+            offset = mano.transform.position;
             interactuando = true;
         }
         else

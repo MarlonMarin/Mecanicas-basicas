@@ -12,6 +12,7 @@ TagManager:
   - PlayerAnimator
   - reiniciar
   - enemigo
+  - mano
   layers:
   - Default
   - TransparentFX

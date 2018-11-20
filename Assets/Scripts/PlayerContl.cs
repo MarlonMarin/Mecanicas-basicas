@@ -54,8 +54,7 @@ public class PlayerContl : MonoBehaviour
 
             //movimiento
             movement = new Vector3(0.0f, 0.0f, 1f);
-        }
-        if (atras)
+        }else if (atras)
         {
             //Animaciones
             animController.SetBool("morir", false);
@@ -84,8 +83,7 @@ public class PlayerContl : MonoBehaviour
             //movimiento
             movement = new Vector3(0.0f, 0.0f, 1f);
 
-        }
-        if (izquierda)
+        }else if (izquierda)
         {
             //Animaciones
             animController.SetBool("morir", false);
@@ -102,6 +100,13 @@ public class PlayerContl : MonoBehaviour
         if (recta || diagonal)
         {
             transform.Translate(movement * speed * Time.deltaTime);
+        }
+        else
+        {
+            //Animaciones
+            animController.SetBool("morir", false);
+            animController.SetBool("idle", true);
+            animController.SetBool("correr", false);
         }
 
         if (salto && EnPiso == true)

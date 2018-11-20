@@ -7,6 +7,7 @@ public class CambioEscena : MonoBehaviour {
 
     //public GameObject llave;
     public bool abierto;
+    public string NombreDEscena;
     private AssetBundle myLoadedAssetBundle;
 
     // Use this for initialization
@@ -18,7 +19,7 @@ public class CambioEscena : MonoBehaviour {
 	void Update () {
 		if(abierto)
         {
-            SceneManager.LoadScene("Intro");
+            SceneManager.LoadScene(NombreDEscena);
         }
 	}
 
