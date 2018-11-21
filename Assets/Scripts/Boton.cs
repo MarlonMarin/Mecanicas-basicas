@@ -8,7 +8,8 @@ public class Boton : MonoBehaviour {
     public bool tocObj = false;
     public Vector3 posI;
     public Vector3 posF;
-    public GameObject g;
+    public GameObject g,texto;
+    bool enviar;
 	// Use this for initialization
 	void Start () {
 
@@ -16,6 +17,7 @@ public class Boton : MonoBehaviour {
         //editar esta pocision si se quiere ir más a fondo con el boton
         posF = new Vector3(posI.x,posI.y - 0.3f,posI.z);
         g.active = false;
+        texto.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -43,6 +45,14 @@ public class Boton : MonoBehaviour {
             //Debug.Log(g.active);
             
         }
+        if (enviar)
+        {
+            texto.SetActive(true);
+        }
+        else
+        {
+            texto.SetActive(false);
+        }
         
     }
 
@@ -51,13 +61,14 @@ public class Boton : MonoBehaviour {
         if (col.gameObject.tag == "objeto")
         {
             tocObj = true;
-        }
-        else if(col.gameObject.tag == "Player")
+        }else if (col.gameObject.tag == "Player")
         {
+            enviar = true;
             tocPlayer = true;
         }
         else
         {
+            enviar = false;
             tocObj = false;
             tocPlayer = false;
         }

@@ -8,8 +8,15 @@ public class Interactuar : MonoBehaviour
     public bool interactuando = false;
     public GameObject player, mano;
     public Rigidbody Rllave;
+    bool enviar;
+    public GameObject text;
+    public float posY;
+
     void Start()
     {
+ 
+        enviar = false;
+        text.SetActive(false);
         mano = GameObject.FindGameObjectWithTag("mano");
         posinicial = transform.position;
     }
@@ -32,6 +39,15 @@ public class Interactuar : MonoBehaviour
             offset = transform.position - mano.transform.position;
             //offset = transform.position - player.transform.position;
         }
+        //para enviar un mensaje en el canvas
+        if (enviar)
+        {
+            text.SetActive(true);
+        }
+        else
+        {
+            text.SetActive(false);
+        }
     }
 
 
@@ -39,17 +55,19 @@ public class Interactuar : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-                float posY;
-                posY = col.transform.position.y - 0.5f;
+            //posY = col.transform.position.z +100f;
             //    posY = col.transform.position.y - 0.5f;
 
             //    offset = transform.position - new Vector3(col.transform.position.x, posY, col.transform.position.z);
-            offset = mano.transform.position;
+            //offset = new Vector3(transform.position.x,transform.position.y, posY);
             interactuando = true;
+
+                enviar = true;
         }
         else
         {
             interactuando = false;
+            enviar = false;
         }
         if (col.gameObject.tag == "reiniciar")
         {

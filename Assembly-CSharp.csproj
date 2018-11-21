@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\Enemigo.cs" />
     <Compile Include="Assets\Scripts\Interactuar.cs" />
     <Compile Include="Assets\Scripts\Mariposa.cs" />
+    <Compile Include="Assets\Scripts\Mensaje.cs" />
+    <Compile Include="Assets\Scripts\Mensaje2.cs" />
     <Compile Include="Assets\Scripts\PalancaCruzada.cs" />
     <Compile Include="Assets\Scripts\PlayerContl.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
