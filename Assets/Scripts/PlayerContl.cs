@@ -111,12 +111,13 @@ public class PlayerContl : MonoBehaviour
 
         if (salto && EnPiso == true)
         {
-            rb.velocity = new Vector3(0, velSalto -g, 0);
+            //rb.velocity = new Vector3(0, velSalto, 0);
             EnPiso = false;
-        }else if (rb.velocity.y <=1)
+            rb.velocity = Vector3.up * velSalto;
+        }/*else if (rb.velocity.y <=1)
         {
             rb.velocity = new Vector3(0, -g, 0);
-        }
+        }*/
 
     }
 
